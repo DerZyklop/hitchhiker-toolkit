@@ -13,7 +13,7 @@
 }
 
 body {
-  background: url("../img/ui/ipad-pattern.jpg") #444444;
+  background: url("../img/ui/ipad-pattern.jpg") #444444 fixed;
 }
 
 article {
@@ -396,7 +396,7 @@ table {
     height: 3em;
   }
   body:not(:target) #nav:target a:active, body:not(:target) #nav:target a:focus, body:not(:target) #nav:target a:hover {
-    background: #f6f6f6;
+    background: whitesmoke;
   }
   body:not(:target) #nav:target .last a {
     border-bottom: none;
@@ -511,10 +511,12 @@ button, .btn, input[type="button"] {
 .page-wrap p {
   padding-left: 20px;
   padding-right: 20px;
+  color: white;
 }
 
 .page-wrap {
-  background: white;
+  background: #fefefe;
+  background: transparent;
   padding-top: 80px;
   padding-bottom: 40px;
 }
@@ -605,11 +607,11 @@ button, .btn, input[type="button"] {
 }
 
 #color-1 {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f3f3f3), color-stop(100%, #aaaaaa));
-  background-image: -webkit-linear-gradient(#f3f3f3, #aaaaaa);
-  background-image: -moz-linear-gradient(#f3f3f3, #aaaaaa);
-  background-image: -o-linear-gradient(#f3f3f3, #aaaaaa);
-  background-image: linear-gradient(#f3f3f3, #aaaaaa);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #eeeeee), color-stop(100%, #999999));
+  background-image: -webkit-linear-gradient(#eeeeee, #999999);
+  background-image: -moz-linear-gradient(#eeeeee, #999999);
+  background-image: -o-linear-gradient(#eeeeee, #999999);
+  background-image: linear-gradient(#eeeeee, #999999);
 }
 
 #color-2 {
@@ -630,6 +632,7 @@ button, .btn, input[type="button"] {
   background-image: -moz-linear-gradient(#ffffff, #e5e5e5);
   background-image: -o-linear-gradient(#ffffff, #e5e5e5);
   background-image: linear-gradient(#ffffff, #e5e5e5);
+  background: white;
 }
 
 #color-5 {

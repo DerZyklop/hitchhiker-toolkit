@@ -34,7 +34,9 @@
         </div>
         <div class="form-element" id="color-11">
         </div>
-        <div class="form-element more-btn">+</div>
+        <div class="form-element" id="color-12">
+        </div>
+<!--        <div class="form-element more-btn">+</div>-->
         <div class="clearit"></div>
         <input type="hidden" value="" name="color" id="color" />
       </div>
@@ -75,7 +77,9 @@
         </div>
         <div class="form-element" id="manufacturer-11">
         </div>
-        <div class="form-element more-btn">+</div>
+        <div class="form-element" id="manufacturer-12">
+        </div>
+<!--        <div class="form-element more-btn">+</div>-->
         <div class="clearit"></div>
         <input type="hidden" value="" name="manufacturer" id="manufacturer" />
       </div>
