@@ -1,0 +1,172 @@
+@import 'compass'
+
+@import 'variables'
+
+@import 'mixins/all'
+
+//@mixin all-html
+// html
++core
+//+page-width
++reset
++typography
++button
++input
++hr
++blockquote
++pre
++table
++list
+
+//@mixin all-pxwrk-ui
+// pxwrk_ui
+//+nav
+//+box
+//+tag
+//+progressbar
+//+toggle-checkbox
+//+slideupbox(200px)
+//+range
+
+//@mixin all-responsive
+// other
++responsive(600px)
++nav_responsive(600px)
+
+//@mixin all-twitter-bootstrap
++bootstrap-tooltip
+
+body *
+  border-color: $border-color
+  border-width: 0
+  border-style: $border-style
+  +box-sizing(border-box)
+
+section
+  margin-bottom: 1.5em
+
+button, .btn, input[type="button"]
+  width: 100%
+
+.page-wrap
+  h1, h2, h3, h4, h5, h6, 
+  p
+    padding-left: 20px
+    padding-right: 20px
+
+.page-wrap 
+  background: #fff
+  padding-top: 80px
+  padding-bottom: 40px
+
+//foo
+.header,
+.footer
+  +box-shadow(0 0 20px rgba(0,0,0,0.1))
+
+.header
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  border-bottom-width: 1px
+  background: #fff
+  img
+    width: 60px
+
+.footer
+  position: fixed
+  bottom: 0
+  left: 0
+  right: 0
+  padding-left: 20px
+  padding-right: 20px
+  border-top-width: 1px
+  background: #fff
+  img
+    width: 60px
+
+.form-elements
+  border-top-width: 1px
+  border-color: #000
+  background-color: #f6f6f6
+  //background-image: url('../img/ui/ipad-pattern.jpg')
+  .form-element
+    cursor: pointer
+  &.elements-4
+    .form-element,
+    .form-element-inner
+      height: 70px
+      line-height: 70px
+    .form-element
+      .form-element-inner
+        display: block
+        width: 100%
+        text-align: center
+        +appearance(none)
+        margin: 0
+      width: 25%
+      border-color: #000
+      border-left-width: 1px
+      border-bottom-width: 1px
+      float: left
+      text-align: center
+      &.active
+        .form-element-inner
+          border-color: #000
+          border-width: 5px
+      &#color-2.active
+        .form-element-inner
+          border-color: #fff
+      &#color-3.active
+        .form-element-inner
+          border-color: #fff
+      &#color-7.active
+        .form-element-inner
+          border-color: #fff
+
+.more-btn
+  font-size: 4em
+  background: $primary
+  background: #000
+  color: $font-color-highlight
+  font-weight: bold
+
+#color-1
+  +background-image(linear-gradient(#f3f3f3, #aaa))
+#color-2
+  background: #000
+#color-3
+  +background-image(linear-gradient(#0099ff, #003388))
+#color-4
+  +background-image(linear-gradient(#fff, #e5e5e5))
+#color-5
+  +background-image(linear-gradient(#ff0000, #cc0000))
+#color-6
+  +background-image(linear-gradient(#ffff00, #dddd00))
+#color-7
+  +background-image(linear-gradient(#dd8800, #773300))
+#color-8
+  +background-image(linear-gradient(#00ff00, #00cc00))
+#color-9
+  +background-image(linear-gradient(#ff8800, #dd5500))
+#manufacturer-1
+  background: #fff url('../img/manufacturer/audi.png') center center no-repeat
+#manufacturer-2
+  background: #fff url('../img/manufacturer/bmw.jpg') center center no-repeat
+#manufacturer-3
+  background: #fff url('../img/manufacturer/ford.jpg') center center no-repeat
+#manufacturer-4
+  background: #fff url('../img/manufacturer/mercedes.png') center center no-repeat
+#manufacturer-5
+  background: #fff url('../img/manufacturer/opel.png') center center no-repeat
+#manufacturer-6
+  background: #fff url('../img/manufacturer/vw.jpg') center center no-repeat
+#manufacturer-7
+  background: #fff url('../img/manufacturer/volvo.png') center center no-repeat
+#manufacturer-8
+  background: #fff url('../img/manufacturer/toyota.png') center center no-repeat
+#manufacturer-9
+  background: #fff url('../img/manufacturer/smart.jpg') center center no-repeat
+#manufacturer-10
+  background: #fff url('../img/manufacturer/porsche.jpg') center center no-repeat
