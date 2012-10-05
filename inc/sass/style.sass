@@ -2,7 +2,7 @@
 
 @import 'variables'
 
-@import 'mixins/all'
+@import '../../../pxwrk-sass-dummy/mixins/all'
 
 //@mixin all-html
 // html
@@ -49,42 +49,104 @@ button, .btn, input[type="button"]
   width: 100%
 
 .page-wrap
-  h1, h2, h3, h4, h5, h6, 
-  p
-    padding-left: 20px
-    padding-right: 20px
-    color: #fff
-
-.page-wrap 
   background: $width-wrap-background
   background: transparent
-  padding-top: 80px
-  padding-bottom: 40px
+  margin-top: 55px
+  margin-bottom: 30px
+  padding-top: 1em
+  padding-bottom: 1em
+  h1, h2, h3, h4, h5, h6, 
+  p
+    color: $font-color-highlight
+  h1, h2, h3, h4, h5, h6, 
+  p,
+  .btn-bottom
+    margin-left: $page-wrap-padding-l-r
+    margin-right: $page-wrap-padding-l-r
 
-//foo
-.header,
-.footer
-  +box-shadow(0 0 20px rgba(0,0,0,0.1))
+h5,
+th
+  border-width: 1px 0
+  font-weight: bold
+  font-size: 16px
+  line-height: 2em
+  padding: 0
+  font-family: $font-std
 
-.header
+.top-bar
   position: fixed
   top: 0
   left: 0
   right: 0
-  border-bottom-width: 1px
+  z-index: 3
   background: #fff
-  img
-    width: 60px
+  border-bottom-width: 1px
+
+.nav
+  position: relative
+  .nav-items 
+    cursor: pointer
+  * 
+    color: #222222
+  .center
+    display: block
+    float: left
+    width: 70%
+  .other 
+    display: none
+  .other .nav-item 
+    border-top-width: 1px
+    width: 100%
+  .nav-item,
+  .nav-item a 
+    line-height: 50px
+    display: block
+    font-size: 20px
+    text-decoration: none
+    font-weight: bold
+  .nav-item
+    line-height: 55px
+    padding: 0 6% 0 $page-wrap-padding-l-r
+  #geo-reload
+    background: $primary
+    width: 17%
+    height: 55px
+    border-left-width: 1px
+    a 
+      display: block
+      padding-top: 13px
+      padding-bottom: 12px
+      img 
+        margin: 0 auto
+
+#bg-overlay
+  display: none
+  background: #000
+  opacity: 0.7
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  z-index: 2
+
+//foo
+.top-bar,
+.footer
+  +box-shadow(0 0 20px rgba(0,0,0,0.1))
 
 .footer
   position: fixed
   bottom: 0
   left: 0
   right: 0
-  padding-left: 20px
-  padding-right: 20px
+  padding-left: $page-wrap-padding-l-r
+  padding-right: $page-wrap-padding-l-r
   border-top-width: 1px
   background: #fff
+  z-index: 1
+  a 
+    text-decoration: none
   img
     width: 60px
 
@@ -156,9 +218,9 @@ button, .btn, input[type="button"]
 #manufacturer-1
   background: #fff url('../img/manufacturer/audi.png') center center no-repeat
 #manufacturer-2
-  background: #fff url('../img/manufacturer/bmw.jpg') center center no-repeat
+  background: #fff url('../img/manufacturer/bmw.png') center center no-repeat
 #manufacturer-3
-  background: #fff url('../img/manufacturer/ford.jpg') center center no-repeat
+  background: #fff url('../img/manufacturer/ford.png') center center no-repeat
 #manufacturer-4
   background: #fff url('../img/manufacturer/mercedes.png') center center no-repeat
 #manufacturer-5
@@ -170,6 +232,51 @@ button, .btn, input[type="button"]
 #manufacturer-8
   background: #fff url('../img/manufacturer/toyota.png') center center no-repeat
 #manufacturer-9
-  background: #fff url('../img/manufacturer/smart.jpg') center center no-repeat
+  background: #fff url('../img/manufacturer/smart.png') center center no-repeat
 #manufacturer-10
-  background: #fff url('../img/manufacturer/porsche.jpg') center center no-repeat
+  background: #fff url('../img/manufacturer/porsche.png') center center no-repeat
+#manufacturer-11
+  background: #fff url('../img/manufacturer/john_deere.png') center center no-repeat
+
+/* Spotsearch [BEGIN] */
+
+.results
+  background: $width-wrap-background - #111
+  h1, h2, h3, h4, h5, h6
+    color: $primary
+  p
+    color: $font-color
+  .distance-bar
+    font-size: 14px
+    font-weight: bold
+    line-height: 1.4em
+    padding: 0.2em $page-wrap-padding-l-r
+    color: #888
+    +background-image(linear-gradient(#dfdfdf,#eee))
+    text-align: center
+  .essentials,
+  .details,
+  .distance-bar
+    border-bottom-width: 1px
+  .essentials
+    background: $width-wrap-background
+    padding: 10px 0 26px 0
+    h3, * 
+      color: $font-color
+    .waitingtime
+      line-height: 20px
+      font-size: 14px
+  .details
+    padding: 10px 0 26px 0
+    display: none
+    table
+      padding-left: $page-wrap-padding-l-r
+      padding-right: $page-wrap-padding-l-r
+      th
+        color: $primary
+        background: $width-wrap-background
+    h5
+      text-align: center
+      background: $width-wrap-background
+
+/* Spotsearch [END] */
