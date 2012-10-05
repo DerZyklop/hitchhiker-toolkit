@@ -21,7 +21,7 @@ class template {
 
 	function georesult($item){
 	    if( $item['waiting_stats']['avg'] != NULL ){ 
-	        $item['waiting_stats']['avg'] = 'Waiting: '.$item['waiting_stats']['avg'].'min';
+	        $item['waiting_stats']['avg'] = 'Wait-Ø: '.$item['waiting_stats']['avg'].'min';
 	    };
         if ($item['comments']==NULL) {
             $item['comments'] = 'No comment jet';

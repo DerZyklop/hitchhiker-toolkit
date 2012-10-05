@@ -55,7 +55,7 @@ foreach ($suggested_ids as $key => $value) {
 }
 require_once('class.template.php');
 ?>
-<div class="results">
+
 <?php 
     $count = 10;
     $viewed_spots = 0;
@@ -65,8 +65,10 @@ require_once('class.template.php');
                 $all_suggested_places[$i]['distance'] = round($item['distance'], 0).'KM';
             }
         }
-        echo template::georesult( $all_suggested_places[$i] );
-
+    }
+    if ($all_suggested_places[0]['location']['locality'] == NULL) {
+      echo($all_suggested_places[1]['location']['locality']);
+    } else {
+      echo($all_suggested_places[0]['location']['locality']);
     }
 ?>
-</div>

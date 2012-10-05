@@ -1,8 +1,11 @@
 <?php 
 $site_name = 'index';
-include('inc/templates/head.php');
+include('inc/templates/head.phtml');
 ?>
-    <section>
-      <h3>Hi! I'm your index.php, how can i help you?</h3>
+    <section class="page-wrap-inner">
+      <h3>Hi! I'm your Hitchhiker-Toolkit!</h3>
+      <p>
+        Tap on the Bar above to see the menu.
+      </p>
     </section>
 <?php include('inc/templates/footer.html') ?>

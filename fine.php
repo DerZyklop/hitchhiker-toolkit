@@ -1,8 +1,9 @@
 <?php 
 $site_name = 'imfine';
 $reload_btn == true;
-include('inc/templates/head.php');
+include('inc/templates/head.phtml');
 ?>
+<div class="page-wrap-inner">
   <form action="mail.php" method="post">
     <section>
       <h3>Color</h3>
@@ -40,12 +41,12 @@ include('inc/templates/head.php');
         </div>
         <div class="form-element" id="color-12">
         </div>
-<!--        <div class="form-element more-btn">+</div>-->
+  <!--        <div class="form-element more-btn">+</div>-->
         <div class="clearit"></div>
         <input type="hidden" value="" name="color" id="color" />
       </div>
     </section>
-
+  
     <section>
       <h3>Manufacturer</h3>
       <div class="form-elements elements-4">
@@ -84,16 +85,17 @@ include('inc/templates/head.php');
         </div>
         <div class="form-element" id="manufacturer-12">
         </div>
-<!--        <div class="form-element more-btn">+</div>-->
+  <!--        <div class="form-element more-btn">+</div>-->
         <div class="clearit"></div>
         <input type="hidden" value="" name="manufacturer" id="manufacturer" />
       </div>
     </section>
     <section>
-      <h3>Fertig?</h3>
+      <h3>Ready?</h3>
       <p>
-        <button type="submit">GO!!</button>
+        <button type="submit">Go for it!</button>
       </p>
     </section>
   </form>
+</div>
 <?php include('inc/templates/footer.html') ?>

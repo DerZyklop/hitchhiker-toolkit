@@ -20,16 +20,15 @@ jQuery(document).ready(function(){
         var longitude = position.coords.longitude;
         var lat = parseFloat(latitude);
         var lon = parseFloat(longitude);
-        //jQuery("#ajax_output").html('<p><img src="inc/img/ajax-loader.gif" alt="" class="progressbar" /></p>');
-        jQuery("#geo-load").html('Wait a second...');
+        //jQuery("#geo-load").html('Wait a second...');
 
         jQuery.ajax({
             url: 'inc/php/ajaxgeo.php',
             type: "POST",
             data: ({lat: lat, lon: lon}),
             success: function(data){
-                jQuery("#ajax_output").html(data);
-                stop_Int();
+                jQuery('#ajax_output').html(data);
+                stop_Int('#geo-reload');
                 jQuery('.results .essentials').click( function () {
                     /*
                     var mapId = jQuery(this).parent().find('.map_canvas').attr('id');
@@ -56,8 +55,8 @@ jQuery(document).ready(function(){
           stop_Int();
         }
     }
-    function stop_Int(){
-        var el = jQuery('#geo-reload').find('img');
+    function stop_Int(selector){
+        var el = jQuery(selector).find('img');
         var tr = el.css("-webkit-transform") ||
                  el.css("-moz-transform") ||
                  el.css("-ms-transform") ||
@@ -79,7 +78,7 @@ jQuery(document).ready(function(){
         // var angle = Math.round(Math.asin(sin) * (180/Math.PI));
         var angle = Math.round(Math.atan2(b, a) * (180/Math.PI));
         
-        jQuery('#geo-reload').find('img').rotate({ angle: angle, animateTo:180 });
+        jQuery(selector).find('img').rotate({ angle: angle, animateTo:180 });
 
         if(intval!==""){
             window.clearInterval(intval);
@@ -91,7 +90,7 @@ jQuery(document).ready(function(){
     }
 
     jQuery("#geo-reload").click(function(){
-        start_Int();
+        start_Int('#geo-reload');
         navigator.geolocation.getCurrentPosition(callbackFunktion);
     });
 

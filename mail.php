@@ -1,8 +1,8 @@
 <?php 
 $site_name = 'index';
-include('inc/templates/head.php');
+include('inc/templates/head.phtml');
 ?>
-  <section>
+  <section class="page-wrap-inner">
     
     <form action="mail.html"></form>
     

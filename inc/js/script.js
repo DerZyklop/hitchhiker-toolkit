@@ -30,15 +30,33 @@ jQuery(document).ready(function(){
 */
   
   var statusIsActive = false;
+  var inProgress = false;
   jQuery('.current').click( function () {
-    if (statusIsActive) {
-      jQuery(this).parent().parent().parent().find('.other').slideUp();
-      statusIsActive = false;
-    } else {
-      jQuery(this).parent().parent().parent().find('.other').slideDown();
-      statusIsActive = true;
+    if (inProgress === false) {
+      inProgress = true;
+      if (statusIsActive) {
+        jQuery(this).parent().parent().parent().find('.other').slideUp(function () {
+          inProgress = false;
+        });
+        statusIsActive = false;
+      } else {
+        jQuery(this).parent().parent().parent().find('.other').slideDown(function () {
+          inProgress = false;
+        });
+        statusIsActive = true;
+      }
+      jQuery('#bg-overlay').fadeToggle(500);
     }
-    jQuery('#bg-overlay').fadeToggle(500);
+  });
+  jQuery('#bg-overlay').click( function () {
+    if (inProgress === false) {
+      inProgress = true;
+      jQuery(this).parent().parent().parent().find('.other').slideUp();
+      jQuery('#bg-overlay').fadeToggle(500, function () {
+        inProgress = false;
+      });
+      statusIsActive = false;
+    }
   });
   jQuery('#geo-reload').click( function () {
     jQuery(this).toggleClass('active');
