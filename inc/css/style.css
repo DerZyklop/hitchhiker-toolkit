@@ -168,7 +168,7 @@ legend {
   font-weight: bold;
 }
 
-button, .btn, input[type="button"], input[type="submit"], input[type="reset"] {
+button, .btn, input[type="submit"], input[type="reset"] {
   display: block;
   padding: 0 1em;
   cursor: pointer;
@@ -199,8 +199,7 @@ button, .btn, input[type="button"], input[type="submit"], input[type="reset"] {
   -o-transition: 1s;
   transition: 1s;
 }
-button:hover, .btn:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover {
-  text-decoration: none;
+button:hover, .btn:hover, input[type="submit"]:hover, input[type="reset"]:hover {
   color: white;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #2b9cc1), color-stop(100%, #018bb8));
   background-image: -webkit-linear-gradient(#2b9cc1, #018bb8);
@@ -324,7 +323,7 @@ table {
   }
 
   .inner-width-wrap {
-    padding: 10px 10px;
+    padding: 20px 20px;
   }
 
   .tooltip {
@@ -508,110 +507,37 @@ button, .btn, input[type="button"] {
   width: 100%;
 }
 
+.page-wrap h1, .page-wrap h2, .page-wrap h3, .page-wrap h4, .page-wrap h5, .page-wrap h6,
+.page-wrap p {
+  padding-left: 20px;
+  padding-right: 20px;
+  color: white;
+}
+
 .page-wrap {
   background: #fefefe;
   background: transparent;
-  margin-top: 55px;
-  margin-bottom: 30px;
-  padding-top: 1em;
-  padding-bottom: 1em;
-}
-.page-wrap h1, .page-wrap h2, .page-wrap h3, .page-wrap h4, .page-wrap h5, .page-wrap h6,
-.page-wrap p {
-  color: white;
-}
-.page-wrap h1, .page-wrap h2, .page-wrap h3, .page-wrap h4, .page-wrap h5, .page-wrap h6,
-.page-wrap p,
-.page-wrap .btn-bottom {
-  margin-left: 20px;
-  margin-right: 20px;
+  padding-top: 80px;
+  padding-bottom: 40px;
 }
 
-h5,
-th {
-  border-width: 1px 0;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 2em;
-  padding: 0;
-  font-family: "Droid Sans", helvetica;
-}
-
-.top-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 3;
-  background: white;
-  border-bottom-width: 1px;
-}
-
-.nav {
-  position: relative;
-}
-.nav .nav-items {
-  cursor: pointer;
-}
-.nav * {
-  color: #222222;
-}
-.nav .center {
-  display: block;
-  float: left;
-  width: 70%;
-}
-.nav .other {
-  display: none;
-}
-.nav .other .nav-item {
-  border-top-width: 1px;
-  width: 100%;
-}
-.nav .nav-item,
-.nav .nav-item a {
-  line-height: 50px;
-  display: block;
-  font-size: 20px;
-  text-decoration: none;
-  font-weight: bold;
-}
-.nav .nav-item {
-  line-height: 55px;
-  padding: 0 6% 0 20px;
-}
-.nav #geo-reload {
-  background: #23adda;
-  width: 17%;
-  height: 55px;
-  border-left-width: 1px;
-}
-.nav #geo-reload a {
-  display: block;
-  padding-top: 13px;
-  padding-bottom: 12px;
-}
-.nav #geo-reload a img {
-  margin: 0 auto;
-}
-
-#bg-overlay {
-  display: none;
-  background: black;
-  opacity: 0.7;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 2;
-}
-
-.top-bar,
+.header,
 .footer {
   -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-bottom-width: 1px;
+  background: white;
+}
+.header img {
+  width: 60px;
 }
 
 .footer {
@@ -623,10 +549,6 @@ th {
   padding-right: 20px;
   border-top-width: 1px;
   background: white;
-  z-index: 1;
-}
-.footer a {
-  text-decoration: none;
 }
 .footer img {
   width: 60px;
@@ -758,11 +680,11 @@ th {
 }
 
 #manufacturer-2 {
-  background: white url("../img/manufacturer/bmw.png") center center no-repeat;
+  background: white url("../img/manufacturer/bmw.jpg") center center no-repeat;
 }
 
 #manufacturer-3 {
-  background: white url("../img/manufacturer/ford.png") center center no-repeat;
+  background: white url("../img/manufacturer/ford.jpg") center center no-repeat;
 }
 
 #manufacturer-4 {
@@ -786,71 +708,9 @@ th {
 }
 
 #manufacturer-9 {
-  background: white url("../img/manufacturer/smart.png") center center no-repeat;
+  background: white url("../img/manufacturer/smart.jpg") center center no-repeat;
 }
 
 #manufacturer-10 {
-  background: white url("../img/manufacturer/porsche.png") center center no-repeat;
+  background: white url("../img/manufacturer/porsche.jpg") center center no-repeat;
 }
-
-#manufacturer-11 {
-  background: white url("../img/manufacturer/john_deere.png") center center no-repeat;
-}
-
-/* Spotsearch [BEGIN] */
-.results {
-  background: #ededed;
-}
-.results h1, .results h2, .results h3, .results h4, .results h5, .results h6 {
-  color: #23adda;
-}
-.results p {
-  color: #222222;
-}
-.results .distance-bar {
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 1.4em;
-  padding: 0.2em 20px;
-  color: #888888;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #dfdfdf), color-stop(100%, #eeeeee));
-  background-image: -webkit-linear-gradient(#dfdfdf, #eeeeee);
-  background-image: -moz-linear-gradient(#dfdfdf, #eeeeee);
-  background-image: -o-linear-gradient(#dfdfdf, #eeeeee);
-  background-image: linear-gradient(#dfdfdf, #eeeeee);
-  text-align: center;
-}
-.results .essentials,
-.results .details,
-.results .distance-bar {
-  border-bottom-width: 1px;
-}
-.results .essentials {
-  background: #fefefe;
-  padding: 10px 0 26px 0;
-}
-.results .essentials h3, .results .essentials * {
-  color: #222222;
-}
-.results .essentials .waitingtime {
-  line-height: 20px;
-  font-size: 14px;
-}
-.results .details {
-  padding: 10px 0 26px 0;
-  display: none;
-}
-.results .details table {
-  padding-left: 20px;
-  padding-right: 20px;
-}
-.results .details table th {
-  color: #23adda;
-  background: #fefefe;
-}
-.results .details h5 {
-  text-align: center;
-  background: #fefefe;
-}
-
-/* Spotsearch [END] */

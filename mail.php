@@ -1,7 +1,5 @@
-<?php 
-$site_name = 'index';
-include('inc/templates/head.php');
-?>
+<?php include('inc/php/head.php') ?>
+
   <section>
     
     <form action="mail.html"></form>
@@ -68,16 +66,10 @@ include('inc/templates/head.php');
             $manufacturer_name = 'Volvo';
             break;
           case 'manufacturer-8':
-            $manufacturer_name = 'Toyota';
-            break;
-          case 'manufacturer-9':
             $manufacturer_name = 'Smart';
             break;
-          case 'manufacturer-10':
+          case 'manufacturer-9':
             $manufacturer_name = 'Porsche';
-            break;
-          case 'manufacturer-11':
-            $manufacturer_name = 'John Deere tractor';
             break;
         }
         echo( $manufacturer_name );
@@ -123,4 +115,4 @@ This is a generated mail from http://zyklop.pisces.uberspace.de/hitchhiker/ -> A
     </div>
   </section>
 
-<?php include('inc/templates/footer.html') ?>
+<?php include('inc/php/footer.php') ?>
