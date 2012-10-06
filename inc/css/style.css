@@ -254,13 +254,6 @@ hr {
   height: 2px;
 }
 
-blockquote {
-  padding: 0 0 0 2.5em;
-  margin: 2em 0;
-  border-left: 1px solid #cccccc;
-  font-style: italic;
-}
-
 pre {
   background: white;
   border: 4px solid #cccccc;
@@ -513,6 +506,19 @@ a:hover {
   color: white;
 }
 
+blockquote {
+  background: white url("../img/ui/noise.png");
+  -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+  margin: 10px 20px;
+  padding: 1px 0;
+}
+blockquote p {
+  font-style: italic;
+  color: #222222 !important;
+}
+
 section {
   margin-bottom: 1.5em;
 }
@@ -535,11 +541,12 @@ input[type="text"] {
   border-width: 1px;
 }
 
+/* */
 .icon-thumb {
   display: block;
   float: left;
   width: 16px;
-  height: 0;
+  height: 45px;
   margin-right: 6px;
   background: url("../img/icon/thumb.png") center center no-repeat;
 }
@@ -552,7 +559,7 @@ input[type="text"] {
 
 .page-wrap {
   margin-top: 60px;
-  margin-bottom: -1px;
+  margin-bottom: 44px;
   background: #fefefe;
   background: transparent;
 }
@@ -630,16 +637,25 @@ th {
   padding: 0 6% 0 20px;
 }
 
+#screen_overlay,
 #bg-overlay {
   display: none;
   background: black;
-  opacity: 0.7;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  padding-top: 80px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 2em;
   z-index: 2;
+}
+
+#bg-overlay {
+  opacity: 0.7;
 }
 
 /* Special-Buttons [BEGIN] */
@@ -683,17 +699,17 @@ th {
   background-image: linear-gradient(#555555, #222222);
 }
 #settings-btn a {
-  height: 0;
-  padding-top: -15px;
-  padding-bottom: -15px;
+  height: 45px;
+  padding-top: 7.5px;
+  padding-bottom: 7.5px;
   background: url("../img/icon/pen.png") center center no-repeat;
   font-size: 0;
 }
 
 #location-load-btn a {
-  height: 0;
-  padding-top: -15px;
-  padding-bottom: -15px;
+  height: 45px;
+  padding-top: 7.5px;
+  padding-bottom: 7.5px;
   font-size: 0;
 }
 
@@ -715,8 +731,9 @@ th {
 }
 
 .footer {
-  line-height: 0;
-  height: 0;
+  font-size: 14px;
+  line-height: 45px;
+  height: 45px;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -753,8 +770,7 @@ th {
   width: 20%;
 }
 
-.footer .left-content,
-.top-bar .left-content {
+.footer .left-content {
   padding-left: 20px;
 }
 

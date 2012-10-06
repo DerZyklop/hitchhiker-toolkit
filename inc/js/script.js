@@ -4,6 +4,10 @@ function removeToggleClass(that,className) {
 }
 
 jQuery(document).ready(function(){
+  jQuery('.nolink').click(function(event){
+    event.preventDefault();
+  });
+
   jQuery('.form-elements .form-element').click( function () {
     removeToggleClass(this,'active');
     var identifier = jQuery(this).attr('id');

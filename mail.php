@@ -1,126 +1,160 @@
 <?php 
+require_once('inc/php/config.php');
+$recipent_adress = 'inyo@gmx.de';
 $site_name = 'index';
+
 include('inc/templates/head.phtml');
 ?>
-  <section class="page-wrap-inner">
-    
-    <form action="mail.html"></form>
-    
+<section class="page-wrap-inner">
+<?php
+if ($_POST['send'] != true) {
+?>
+  <form action="mail.php" method="post">
     <div class="box">
       <h3>Email </h3>
-      <p>Ok, great!<br />You're sitting in a <?php if ($_POST['color']==false) {
-        echo( 'undefined-colored' );
-    } else {
-        switch ($_POST['color']) {
-          case 'color-1':
-            $color_name = 'gray/silver';
-            break;
-          case 'color-2':
-            $color_name = 'black';
-            break;
-          case 'color-3':
-            $color_name = 'blue';
-            break;
-          case 'color-4':
-            $color_name = 'white';
-            break;
-          case 'color-5':
-            $color_name = 'red';
-            break;
-          case 'color-6':
-            $color_name = 'yellow';
-            break;
-          case 'color-7':
-            $color_name = 'brown';
-            break;
-          case 'color-8':
-            $color_name = 'green';
-            break;
-          case 'color-9':
-            $color_name = 'orange';
-            break;
-        }
-        echo( $color_name.'-colored' );
-    } ?>&nbsp;<?php 
-    if ($_POST['manufacturer']==false) {
-        echo( 'car' );
-    } else {
-        switch ($_POST['manufacturer']) {
-          case 'manufacturer-1':
-            $manufacturer_name = 'Audi';
-            break;
-          case 'manufacturer-2':
-            $manufacturer_name = 'BMW';
-            break;
-          case 'manufacturer-3':
-            $manufacturer_name = 'Ford';
-            break;
-          case 'manufacturer-4':
-            $manufacturer_name = 'Mercedes';
-            break;
-          case 'manufacturer-5':
-            $manufacturer_name = 'Opel';
-            break;
-          case 'manufacturer-6':
-            $manufacturer_name = 'Volkswagen';
-            break;
-          case 'manufacturer-7':
-            $manufacturer_name = 'Volvo';
-            break;
-          case 'manufacturer-8':
-            $manufacturer_name = 'Toyota';
-            break;
-          case 'manufacturer-9':
-            $manufacturer_name = 'Smart';
-            break;
-          case 'manufacturer-10':
-            $manufacturer_name = 'Porsche';
-            break;
-          case 'manufacturer-11':
-            $manufacturer_name = 'John Deere tractor';
-            break;
-        }
-        echo( $manufacturer_name );
-    } ?>.</p>
+      <p><?php if ($_POST['color']==false && $_POST['manufacturer']==false) {
+        echo( 'Hm... not that much information, but i\'m happy to hear, that you\'re sitting in a');
+      } else {
+        echo('Ok, great!<br />You\'re sitting in a ');
+        echo( getSpeakingName($_POST['color']) );
+      } 
+      echo(' ');
+      if ($_POST['manufacturer']==false) {
+          echo( 'car' );
+      } else {
+          echo( getSpeakingName($_POST['manufacturer']) );
+        } ?>.
+      </p>
       <p>Should i send this message?</p>
       <blockquote>
         <p>
-        Hi there!
+          Hi there!
         </p>
         <p>
-        i'm sitting in a <?php 
-        if ( isset( $color_name ) && $color_name!=false ) {
-            echo( $color_name.'-colored' ); 
-        } ?> <?php 
-        if ( isset($manufacturer_name) && $manufacturer_name!=false ) {
-            echo($manufacturer_name); 
-        } else {
-            echo('car'); 
-        }
-        ?> now.
-</p>
-<p>I just wanted to let you know so you are not worried about me
-</p>
-<p>
-This is a generated mail from http://zyklop.pisces.uberspace.de/hitchhiker/ -> A awsome mobile toolkit for hitchhikers.
-</p>
+          i'm sitting in a <?php 
+          if ( isset( $_POST['color'] ) && $_POST['color']!=false ) {
+              echo( getSpeakingName($_POST['color']) ); 
+          } ?> <?php 
+          if ( isset($_POST['manufacturer']) && $_POST['manufacturer']!=false ) {
+              echo(getSpeakingName($_POST['manufacturer'])); 
+          } else {
+              echo('car'); 
+          }
+          ?> now.
+        </p>
+        <p>
+          I just wanted to let you know so you are not worried about me.
+        </p>
+        <p>
+        This is a generated mail from the Hitchtool (zyklop.pisces.uberspace.de/dev/hitchhiker/) -> A awsome mobile toolkit for hitchhikers.
+        </p>
       </blockquote>
     </div>
-
     <div class="box">
       <p>
-        <a class="btn" href="mailto:mail@der-zyklop.de?subject=I'm%20hitchhiking&body=Hi there!%0D%0A%0D%0Ai'm%20sitting%20in%20a%20<?php 
-        if ( isset( $color_name ) && $color_name!=false ) {
-            echo( $color_name.'-colored' ); 
-        } ?>%20<?php 
-        if ( isset($manufacturer_name) && $manufacturer_name!=false ) {
-            echo($manufacturer_name); 
-        } else {
-            echo('car'); 
-        }
-        ?>%20now.%0D%0AI%20just%20wanted%20to%20let%20you%20know%20so%20you%20are%20not%20worried%20about%20me%0D%0A%0D%0AThis%20is%20a%20generated%20mail%20from%20http://zyklop.pisces.uberspace.de/hitchhiker/%20->%20A%20awsome%20mobile%20toolkit%20for%20hitchhikers."><span class="icon-share-alt icon-white"></span>Send a "I'm fine"-mail</a>
+        <input type="hidden" name="color" value="<?php echo($_POST['color']) ?>" />
+        <input type="hidden" name="manufacturer" value="<?php echo($_POST['manufacturer']) ?>" />
+        <input type="hidden" name="send" value="true" />
+        <input class="btn nolink" type="submit" id="preserver_mail_submit" value="Send to <?php echo($recipent_adress) ?>" />
+        <script type="text/javascript">
+          jQuery('#preserver_mail_submit').click(function () {
+            var messageSend = false;
+
+/*
+            setInterval(function () {
+              if (messageSend === true) {
+                jQuery('#screen_overlay').fadeOut();
+              }
+            }, 1000)
+*/
+
+            jQuery.ajax({
+                url: 'inc/ajax/sendmail.php',
+                type: "POST",
+                data: ({
+                  recipent_adress: '<?php echo($recipent_adress) ?>', 
+                  color: '<?php echo(getSpeakingName($_POST['color'])) ?>',
+                  manufakturer: '<?php echo(getSpeakingName($_POST['manufakturer'])) ?>'
+                }),
+                fail: function () {
+                  alert('foo');
+                },
+                success: function(data){
+                    //messageSend = true;
+                    //jQuery('.top-bar').after('<div id="screen_overlay">Message Send!<p><input class="btn nolink" type="submit" id="preserver_mail_submit" value="Back to the Preserver" /></p></div>');
+                    jQuery('#preserver_mail_submit').attr('value',data);
+                    //jQuery('#screen_overlay').fadeIn();
+                }
+            });
+          });
+        </script>
       </p>
     </div>
-  </section>
+  </form>
+<?php 
+} else {
+?>
 
+
+  <?php 
+/*
+  //Empfängeradresse setzen
+  $mailer->ClearAddresses();
+  $mailer->AddAddress($recipent_adress);
+
+  //Betreff der Email setzen
+  $mailer->Subject = 'I\'m hitchhiking';
+
+  //Text der EMail setzen
+  $mailer->Body = 'Hi there!
+  i\'m sitting in a ';
+  if ( isset( $_POST['color'] ) && $_POST['color']!=false ) {
+    $mailer->Body .= getSpeakingName($_POST['color']);
+  }
+  $mailer->Body .= ' '; 
+  if ( isset($_POST['manufacturer']) && $_POST['manufacturer']!=false ) {
+    $mailer->Body .= getSpeakingName($_POST['manufacturer']);
+  } else {
+    $mailer->Body .= 'car'; 
+  }
+  $mailer->Body .= ' now.
+
+  I just wanted to let you know so you are not worried about me.
+  
+  This is a generated mail from http://zyklop.pisces.uberspace.de/hitchhiker/ -> A awsome mobile toolkit for hitchhikers.';
+
+  if(!$mailer->Send()) {
+    echo "<p>Mailer Error: ".$mailer->ErrorInfo.'</p>';
+  } else {
+    echo "<p>Message send!</p>";
+  }
+
+  //echo(sentMail($mailer));
+
+  //require_once('inc/php/config.php');
+  
+  //mysql_select_db($mysql->db_name, $mysql->db_connect());
+*/
+
+  /* Creating the table if not exist [BEGIN] */
+  /*
+  $create_table_res = $mysql->db_table_install($mysql->con,$mysql->db_table,'id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  	username TEXT NULL,
+  	start_location INT(11) NULL,
+  	target_location TEXT NULL,
+  	user_email_adress TEXT NULL,
+  	kontact_person_email_adress TEXT NULL,
+  	date TIMESTAMP DEFAULT CURRENT_TIMESTAMP');
+  echo( $create_table_res );
+  */
+  /* Creating the table if not exist [END] */
+  ?>
+
+<p>
+  <a href="preserver.php" class="btn" >Back to the Preserver</a>
+</p>
+<?php 
+}
+?>
+</section>
 <?php include('inc/templates/footer.html') ?>

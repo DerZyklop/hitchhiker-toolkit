@@ -1,8 +1,10 @@
 <?php 
-$site_name = 'imfine';
-$reload_btn == true;
+$site_name = 'preserver';
 include('inc/templates/head.phtml');
+
 ?>
+
+
 <div class="page-wrap-inner">
   <form action="mail.php" method="post">
     <section>

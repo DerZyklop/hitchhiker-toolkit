@@ -23,7 +23,7 @@ jQuery(document).ready(function(){
         //jQuery("#geo-load").html('Wait a second...');
 
         jQuery.ajax({
-            url: 'inc/php/ajaxgeo.php',
+            url: 'inc/ajax/ajaxgeo.php',
             type: "POST",
             data: ({lat: lat, lon: lon}),
             success: function(data){

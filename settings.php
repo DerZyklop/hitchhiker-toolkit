@@ -24,5 +24,10 @@
         <input type="text" name="to" id="to-location" />
       </p>
     </section>
+    <section>
+      <p>
+        ...TODO
+      </p>
+    </section>
 </section>
 <?php include('inc/templates/footer.html'); ?>

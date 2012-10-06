@@ -13,7 +13,7 @@
 +button
 +input
 +hr
-+blockquote
+//+blockquote
 +pre
 +table
 +list
@@ -38,7 +38,6 @@
 
 $header-height: 60px
 $footer-height: 45px
-$footer-height: 0
 
 body *
   border-color: $border-color
@@ -50,6 +49,15 @@ a
   color: $secondary
   &:hover
     color: $font-color-highlight
+
+blockquote
+  background: #fff url('../img/ui/noise.png')
+  +box-shadow(0px 5px 10px rgba(0,0,0,0.5))
+  margin: $page-wrap-padding-t-b 20px
+  padding: 1px 0
+  p
+    font-style: italic
+    color: $font-color !important
 
 section
   margin-bottom: 1.5em
@@ -65,6 +73,7 @@ input[type="text"]
   line-height: 2rem
   border-width: 1px
 
+/*
 .icon-thumb
   display: block
   float: left
@@ -142,16 +151,26 @@ th
   .nav-item
     padding: 0 6% 0 $page-wrap-padding-l-r
 
+#screen_overlay,
 #bg-overlay
   display: none
   background: #000
-  opacity: 0.7
   position: fixed
   top: 0
   right: 0
   bottom: 0
   left: 0
+  padding-top: 80px
+  text-align: center
+  color: $font-color-highlight
+  font-weight: bold
+  font-size: 2em
   z-index: 2
+
+#bg-overlay
+  opacity: 0.7
+
+#screen_overlay
 
 /* Special-Buttons [BEGIN] */
 
@@ -209,6 +228,7 @@ th
       color: $secondary
 
 .footer
+  font-size: 14px
   line-height: $footer-height
   height: $footer-height
   position: fixed
@@ -242,8 +262,7 @@ th
   float: right
   width: 20%
 
-.footer,
-.top-bar
+.footer
   .left-content
     padding-left: $page-wrap-padding-l-r
 
