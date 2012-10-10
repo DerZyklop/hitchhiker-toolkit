@@ -1,0 +1,66 @@
+<div class="top-bar">
+    <div class="nav width-wrap">
+        <div class="nav-items <?php if ($reload_btn == true) { echo(' left-content'); } ?>">
+            <div class="current">
+                <div class="nav-item">
+                    <?php 
+                        switch ( $site_name ) {
+                            case 'seeker':
+                                echo('<span class="icon-map-marker"></span>The Seeker');
+                                break;
+                            case 'preserver':
+                                echo('<span class="icon-ok"></span>The Preserver');
+                                break;
+                            case 'more':
+                                echo('<span class="icon-info-sign"></span>About');
+                                break;
+                            case 'imprint':
+                                echo('<span class="icon-info-sign"></span>Imprint');
+                                break;
+                            default:
+                                echo('<span class="icon-daumen-highlight"></span>HitchhikerToolkit');
+                        }
+                     ?>
+                     <span class="icon-list right"></span>
+                </div>
+            </div>
+        </div>
+        <?php if ($reload_btn == true): ?>
+        <div id="geo-reload" class="right-content">
+            <a class="load img-wrap">
+              <img src="inc/img/icon/refresh-arrows.png" alt="" />
+            </a>
+        </div>
+        <?php endif; ?>
+        <div class="clearit"></div>
+        <div class="other">
+            <div class="nav-item">
+                <a href="preserver.php"><span class="icon-ok"></span>The Preserver</a>
+            </div>
+            <div class="nav-item">
+                <a href="seeker.php"><span class="icon-map-marker"></span>The Seeker</a>
+            </div>
+            <div class="nav-item">
+                <a href="more.php"><span class="icon-info-sign"></span>About</a>
+            </div>
+            <div class="nav-item">
+                <a href="imprint.php"><span class="icon-info-sign"></span>Imprint</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="bg-overlay"></div>
+<!--
+<div class="header nav">
+  <div class="left"><</div>
+  <h1 class="center">
+    <?php 
+      switch ($site_name) {
+        case 'index';
+          echo('Hitchhiker Tool');
+      }
+     ?>
+  </h1>
+  <div class="right">></div>
+</div>
+-->

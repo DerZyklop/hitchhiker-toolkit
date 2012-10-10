@@ -1,0 +1,81 @@
+<div class="result rating-###RATING###">
+    <div class="distance-bar">Distance: ###DISTANCE###</div>
+    <div class="essentials clearfix">
+        <h3>
+            ###LOCATION_LOCALITY###
+        </h3>
+        <div class="btn-bottom">
+            <div class="left rating">
+                ###RATING_STARS###
+            <div class="clearit"></div>
+            </div>
+            <div class="left waitingtime">###WAITING_STATS_AVG###</div>
+            <div class="clearit"></div>
+       </div>
+    </div>
+    <div class="details">
+<!--
+        <p>
+          <a href="map.php?lat=###LAT###&lon=###LON###" class="map-btn btn">View on Map</a>
+        </p>
+-->
+<!--
+        <table>
+            <tr>
+                <th colspan="2">generally stats</th>
+            </tr>
+            <tr>
+                <td>Distance from your location</td>
+                <td>ca. ###DISTANCE###</td>
+            </tr>
+            <tr>
+                <td>elevation</td>
+                <td>###ELEVATION###</td>
+            </tr>
+            <tr>
+                <td>rating_count</td>
+                <td>###RATING_COUNT###</td>
+            </tr>
+        </table>
+-->
+            <!--
+            <?php if (isset($all_suggested_places[$i]['waiting_stats']['count']) && $all_suggested_places[$i]['waiting_stats']['count']!=0) : ?>
+            -->
+<!--
+        <table>
+                <tr>
+                    <th colspan="2">waiting stats</th>
+                </tr>
+                <tr>
+                    <td>avg</td>
+                    <td>###WAITING_STATS_AVG###</td>
+                </tr>
+                <tr>
+                    <td>avg_textual</td>
+                    <td>###WAITING_STATS_AVG_TEXTUAL###</td>
+                </tr>
+                <tr>
+                    <td>count</td>
+                    <td>###WAITING_STATS_COUNT###</td>
+                </tr>
+        </table>
+-->
+            <!--
+            <?php endif; ?>
+            -->
+        <div class="description">
+            <h5>description</h5>
+            <p>###DESCRIPTION_EN_UK_DESCRIPTION###</p>
+        </div>
+<!-- Maybe i'll embed the comments later -->
+<!--
+           <div class="comments">
+                <h4>Comment</h4>
+                ###COMMENTS###
+            </div>
+-->
+        <p>
+          <a href="###LINK###">View this spot on maps.hitchwiki.org</a>
+        </p>
+    </div>
+</div>
