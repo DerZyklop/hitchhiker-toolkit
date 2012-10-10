@@ -1,0 +1,21 @@
+</div>
+
+<div class="footer clearfix">
+<?php 
+if ( $_COOKIE['from_location'] && $_COOKIE['to_location'] ) {
+?>
+  <div class="left-content">
+    <strong><?php echo($_COOKIE['from_location']) ?></strong> towards <strong><?php echo($_COOKIE['to_location']) ?></strong>
+  </div>
+<?php 
+}
+?>
+  <div class="right-content">
+    <div id="settings-btn">
+      <a href="settings.php">Settings</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
