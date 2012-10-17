@@ -28,6 +28,24 @@ function eraseCookie(name) {
 }
 
 
+function setButtonStatus(button_status) {
+  if (button_status===true) {
+    jQuery('button[type="submit"]').removeAttr('disabled');
+  } else if (button_status===false) {
+    jQuery('button[type="submit"]').attr('disabled', 'disabled');
+  } else {
+    if (
+      readCookie('username') != '' &&
+      readCookie('username') != undefined 
+    ) {
+      jQuery('button[type="submit"]').removeAttr('disabled');
+    } else {
+      jQuery('button[type="submit"]').attr('disabled', 'disabled');
+    }
+  }
+}
+
+
 var intval="";
 function start_Int(selector){
     if(intval===""){
@@ -80,48 +98,66 @@ function removeToggleClass(that,className) {
   jQuery(that).toggleClass(className);
 }
 
+
+var lat;
+var lon;
+function callbackFunktion(position) {
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
+    window.lat = parseFloat(latitude);
+    window.lon = parseFloat(longitude);
+}
+
+function openClose(selector) {
+    jQuery(selector).closest('.result').find('.details').slideToggle(200);
+    jQuery(selector).closest('.result').toggleClass('active');
+}
+
+function ajaxGeo(filename, ajax_target, button_selector) {
+    if ( jQuery(ajax_target).get(0).nodeName.toLowerCase() === 'input' ) {
+      jQuery(ajax_target).parent().find(':input').val('Wait a second...');
+      jQuery(ajax_target).parent().find(':input').css('color','#999');
+      setButtonStatus(false);
+    } else {
+      jQuery(ajax_target+' h3').html('Wait a second...');
+    }
+    jQuery.ajax({
+        url: 'inc/ajax/'+filename,
+        type: "POST",
+        data: ({lat: lat, lon: lon}),
+        success: function(data){
+            if ( jQuery(ajax_target).get(0).nodeName.toLowerCase() === 'input' ) {
+              jQuery("#from_location").attr('value',data);
+              jQuery('#location-load-btn').parent().find(':input').css('color','');
+              setButtonStatus();
+            } else {
+              jQuery(ajax_target).html(data);
+            }
+            if ( filename = 'spotload.php' ) {
+              jQuery('.results .essentials').click( function () {
+                  openClose(this);
+              });
+              jQuery('.results .close').click( function () {
+                  openClose(this);
+              });
+            }
+            stop_Int(button_selector);
+        },
+    });
+}
+
 jQuery(document).ready(function(){
   jQuery('.nolink').click(function(event){
     event.preventDefault();
   });
 
-
-	function llCallbackFunktion(position) {
-	    var latitude = position.coords.latitude;
-	    var longitude = position.coords.longitude;
-	    var lat = parseFloat(latitude);
-	    var lon = parseFloat(longitude);
-	    //jQuery("#geo-load").html('Wait a second...');
-	    jQuery('#location-load-btn').parent().find(':input').val('Wait a second...');
-	    jQuery('#location-load-btn').parent().find(':input').css('color','#999');
-	
-	    jQuery.ajax({
-	        url: 'inc/ajax/location-load.php',
-	        type: "POST",
-	        data: ({lat: lat, lon: lon}),
-	        success: function(data){
-	            jQuery("#from_location").attr('value',data);
-		        jQuery('#location-load-btn').parent().find(':input').css('color','');
-	            stop_Int('#location-load-btn');
-	            jQuery('.results .essentials').click( function () {
-	                /*
-	                var mapId = jQuery(this).parent().find('.map_canvas').attr('id');
-	                var lat = jQuery(this).parent().find('.map_canvas').attr('lat');
-	                var lon = jQuery(this).parent().find('.map_canvas').attr('lon');
-	                initializeMap(lon,lat,mapId);
-	                */
-	                jQuery(this).parent().find('.details').slideToggle(200);
-	                jQuery(this).parent('.result').toggleClass('active');
-	            });
-	        }
-	    });
-	}
-
-    jQuery('#location-load-btn').click(function(){
-        start_Int('#location-load-btn');
-        navigator.geolocation.getCurrentPosition(llCallbackFunktion);
-    });
-
+  jQuery('#location-load-btn').click(function(){
+      start_Int('#location-load-btn');
+      navigator.geolocation.getCurrentPosition(function (position) {
+        callbackFunktion(position);
+        ajaxGeo('location-load.php', '#from_location', '#location-load-btn');
+      });
+  });
 
   /* Nav [BEGIN] */
   var statusIsActive = false;

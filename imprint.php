@@ -1,4 +1,4 @@
-<?php $site = 'imprint'; ?>
+<?php $site_name = 'imprint'; ?>
 
 <?php include('inc/templates/head.phtml'); ?>
 <section class="page-wrap-inner">

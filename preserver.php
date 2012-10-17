@@ -11,7 +11,7 @@ include('inc/templates/head.phtml');
   <form action="mail.php" method="post">
     <section>
       <h3>Color</h3>
-      <div class="form-elements elements-4" id="color">
+      <div class="form-elements elements-4" id="color_selection">
         <div class="form-element" id="color-1">
           <div class="form-element-inner"></div>
         </div>
@@ -53,7 +53,7 @@ include('inc/templates/head.phtml');
   
     <section>
       <h3>Manufacturer</h3>
-      <div class="form-elements elements-4" id="manufacturer">
+      <div class="form-elements elements-4" id="manufacturer_selection">
         <div class="form-element" id="manufacturer-1">
           <div class="form-element-inner"></div>
         </div>
@@ -107,26 +107,31 @@ include('inc/templates/head.phtml');
         </div>
       </div>
     </section>
+    <section class="inner">
+      <label for="additional_notes">Additional Notes:</label>
+      <textarea name="additional_notes" id="additional_notes"></textarea>
+    </section>
     <section>
       <p>
         <label>Ready?</label>
-        <button type="submit" class="nolink" id="preserver_submit">
+        <button type="submit" class="nolink" id="preserver_submit" disabled>
         <?php 
           if ($_COOKIE['send_mail']!='true' && $_COOKIE['store_to_db']!='true') {
             echo('Please check your Settings');
-          } else {
-            if ( $_COOKIE['send_mail'] == 'true' ) { 
+          } elseif ( $_COOKIE['send_mail']=='true' && $_COOKIE['store_to_db']!='true' ) { 
               echo('Send mail'); 
-            }
-            if ( $_COOKIE['send_mail']!='true' && $_COOKIE['store_to_db']!='true' ) {
-              echo(' and ');
-            }
-            if ( $_COOKIE['store_to_db'] == 'true' ) {
-              echo('store data');
-            }
+          } elseif ( $_COOKIE['send_mail']=='true' && $_COOKIE['store_to_db']=='true' ) {
+            echo('Send mail'); 
+            echo(' and ');
+            echo('store data');
+          } elseif ( $_COOKIE['send_mail']!='true' && $_COOKIE['store_to_db']=='true' ) {
+            echo('Store data');
           }
         ?>
         </button>
+<!--
+        <input type="reset" class="btn">Clear</button>
+-->
       </p>
     </section>
   </form>

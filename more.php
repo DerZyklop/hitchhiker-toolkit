@@ -1,4 +1,4 @@
-<?php $site = 'more'; ?>
+<?php $site_name = 'more'; ?>
 
 
 <?php include('inc/templates/head.phtml'); ?>

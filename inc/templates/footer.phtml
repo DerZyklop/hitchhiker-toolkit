@@ -12,7 +12,13 @@ if ( $_COOKIE['from_location'] && $_COOKIE['to_location'] ) {
 ?>
   <div class="right-content">
     <div id="settings-btn">
-      <a href="settings.php">Settings</a>
+      <a href="settings.php"
+        <?php
+        if ($site_name=='settings') {
+          echo('class="nolink"');
+        }
+        ?>
+      >Settings</a>
     </div>
   </div>
 </div>

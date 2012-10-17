@@ -211,6 +211,11 @@ button:hover, .btn:hover, input[type="button"]:hover, input[type="submit"]:hover
 button a, .btn a, input[type="button"] a, input[type="submit"] a, input[type="reset"] a {
   text-decoration: none;
 }
+button:disabled, .btn:disabled, input[type="button"]:disabled, input[type="submit"]:disabled, input[type="reset"]:disabled {
+  background: #dddddd;
+  border: 1px solid #cccccc;
+  cursor: default;
+}
 
 .btn-wrap {
   margin: 0px 0;
@@ -530,12 +535,20 @@ button, .btn, input[type="button"] {
   background-image: -o-linear-gradient(#7ad2ef, #69c1de);
   background-image: linear-gradient(#7ad2ef, #69c1de);
   width: 100%;
+  border: none;
+}
+button img, .btn img, input[type="button"] img {
+  margin: 0.3em 0;
+}
+button:disabled, .btn:disabled, input[type="button"]:disabled {
+  border: none;
 }
 button a, .btn a, input[type="button"] a {
   color: white;
 }
 
-input[type="text"] {
+input[type="text"],
+textarea {
   font-size: 1em;
   line-height: 2rem;
   border-width: 1px;
@@ -566,7 +579,7 @@ input[type="text"] {
 .page-wrap h1, .page-wrap h2, .page-wrap h3, .page-wrap h4, .page-wrap h5, .page-wrap h6,
 .page-wrap p,
 .page-wrap ul,
-.page-wrap .input-with-btn {
+.page-wrap section {
   color: white;
 }
 .page-wrap h1, .page-wrap h2, .page-wrap h3, .page-wrap h4, .page-wrap h5, .page-wrap h6,
@@ -579,6 +592,11 @@ input[type="text"] {
 .page-wrap-inner {
   padding-top: 1em;
   padding-bottom: 1.5em;
+}
+
+.inner {
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 h5,
@@ -704,6 +722,10 @@ th {
   padding-bottom: 7.5px;
   background: url("../img/icon/pen.png") center center no-repeat;
   font-size: 0;
+}
+
+#page_settings #settings-btn a {
+  background: url("../img/icon/check-mark.png") center center no-repeat;
 }
 
 #location-load-btn a {

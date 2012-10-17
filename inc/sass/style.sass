@@ -65,13 +65,20 @@ section
 button, .btn, input[type="button"]
   +background-image(linear-gradient($secondary,$secondary - #111))
   width: 100%
+  border: none
+  img
+    margin: 0.3em 0
+  &:disabled
+    border: none
   a 
     color: $font-color-highlight
 
-input[type="text"]
+input[type="text"],
+textarea 
   font-size: 1em
   line-height: 2rem
   border-width: 1px
+
 
 /*
 .icon-thumb
@@ -93,7 +100,7 @@ input[type="text"]
   h1, h2, h3, h4, h5, h6, 
   p,
   ul,
-  .input-with-btn
+  section
     color: $font-color-highlight
   h1, h2, h3, h4, h5, h6, 
   p,
@@ -104,6 +111,10 @@ input[type="text"]
 .page-wrap-inner
   padding-top: 1em
   padding-bottom: 1.5em
+
+.inner
+  margin-left: $page-wrap-padding-l-r
+  margin-right: $page-wrap-padding-l-r
 
 h5,
 th
@@ -204,6 +215,10 @@ th
     padding-bottom: ($footer-height - 30px) / 2
     background: url('../img/icon/pen.png') center center no-repeat
     font-size: 0
+
+#page_settings #settings-btn
+  a
+    background: url('../img/icon/check-mark.png') center center no-repeat
 
 #location-load-btn
   a 

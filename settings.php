@@ -1,4 +1,4 @@
-<?php $site = 'imprint'; ?>
+<?php $site_name = 'settings'; ?>
 
 <?php include('inc/templates/head.phtml'); ?>
 <script type="text/javascript" src="inc/js/jQueryRotateCompressed.js"></script>
@@ -45,6 +45,9 @@
     <section>
       <p>
         <input class="btn nolink" type="submit" id="settings_safe_submit" value="Safe to database" />
+      </p>
+      <p>
+        <a href="preserver.php" class="btn">Back to The Preserver</a>
       </p>
     </section>
 </section>

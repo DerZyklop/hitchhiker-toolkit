@@ -30,7 +30,11 @@ if ($_POST['send'] != true) {
           Hi there!
         </p>
         <p>
-          i'm sitting in a <?php 
+          i'm <?php 
+          if ( isset( $_POST['from_location'] ) && $_POST['from_location']!=false ) {
+              echo( 'at ' ); 
+              echo( $_POST['from_location'].' ' ); 
+          } ?>sitting in a <?php 
           if ( isset( $_POST['color'] ) && $_POST['color']!=false ) {
               echo( getSpeakingName($_POST['color']) ); 
           } ?> <?php 
@@ -40,6 +44,14 @@ if ($_POST['send'] != true) {
               echo('car'); 
           }
           ?> now.
+        </p>
+        <p>
+          <?php 
+          if ( isset($_POST['additional_notes']) && $_POST['additional_notes']!=false ) {
+              echo('Additional Notes: '); 
+              echo($_POST['additional_notes']); 
+          }
+          ?>
         </p>
         <p>
           I just wanted to let you know so you are not worried about me.
@@ -54,7 +66,13 @@ if ($_POST['send'] != true) {
         <input type="hidden" name="color" value="<?php echo($_POST['color']) ?>" />
         <input type="hidden" name="manufacturer" value="<?php echo($_POST['manufacturer']) ?>" />
         <input type="hidden" name="send" value="true" />
-        <input class="btn nolink" type="submit" id="preserver_mail_submit" value="Send to <?php echo($recipent_adress) ?>" />
+        <input class="btn nolink" type="submit" id="preserver_mail_submit" <?php 
+            if ($_COOKIE['contact_person']) {
+              echo('value="Send to '.$_COOKIE['contact_person'].'"');
+            } else {
+              echo('value="Set email address in Settings" disabled');
+            }
+        ?> />
         <script type="text/javascript">
 
           var messageSend = false;
