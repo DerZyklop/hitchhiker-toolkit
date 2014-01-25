@@ -1,32 +1,33 @@
-<?php 
+<?php
 require_once('mail-config.php');
 
 //Empfänger-Email-Adresse setzen
 $mailer->AddAddress($_POST['recipent_adress']);
 
+
 $mailer->Subject = "I'm hitchhiking!";
 $mailer->Body = "Hi there!
 i'm ";
 if ( isset($_POST['from_location']) && $_POST['from_location']!=false ) {
-  $mailer->Body .= "at "; 
+  $mailer->Body .= "at ";
   $mailer->Body .= $_POST['from_location'].' ';
 };
 $mailer->Body .= "sitting in a ";
 if ( isset( $_POST['color'] ) && $_POST['color']!=false ) {
   $mailer->Body .= $_POST['color'];
 }
-$mailer->Body .= ' '; 
+$mailer->Body .= ' ';
 if ( isset($_POST['manufacturer']) && $_POST['manufacturer']!=false ) {
   $mailer->Body .= $_POST['manufacturer'];
 } else {
-  $mailer->Body .= 'car'; 
+  $mailer->Body .= 'car';
 }
 $mailer->Body .= " now.
 
 
 ";
 if ( isset($_POST['additional_notes']) && $_POST['additional_notes']!=false ) {
-  $mailer->Body .= 'Additional Notes: '; 
+  $mailer->Body .= 'Additional Notes: ';
   $mailer->Body .= $_POST['additional_notes'];
 };
 $mailer->Body .= "

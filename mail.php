@@ -1,6 +1,6 @@
 <?php 
 require_once('inc/php/config.php');
-$recipent_adress = 'inyo@gmx.de';
+$recipent_adress = $_COOKIE['recipent_adress'];
 $site_name = 'preserver';
 include('inc/templates/head.phtml');
 ?>
